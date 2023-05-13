@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/home/HomeView.vue'
+import RecipeDetailsView from "@/views/details/RecipeDetailsView.vue";
+import ErrorView from "@/views/ErrorView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,14 +11,20 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    }
+		{
+			path: '/przepis/:slug',
+			name: 'recipe',
+			component: RecipeDetailsView
+		},
+		{
+			path: '/:catchAll(.*)',
+			name: 'ErrorView',
+			component: ErrorView,
+			props: {
+				code: 404,
+				message: 'Ta strona nie została odnaleziona!'
+			}
+		}
   ]
 })
 
