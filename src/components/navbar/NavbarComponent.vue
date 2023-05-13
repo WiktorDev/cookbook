@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-between p-2 items-center h-24 px-10">
+  <nav class="flex justify-between p-2 items-center h-24 mx-20">
     <div>
       <h1 class="text-2xl font-bold">LOGO</h1>
     </div>
@@ -7,7 +7,7 @@
       <h1 class="text-2xl font-bold">H</h1>
     </div>
   </nav>
-  <div v-if="isOpen" class="fixed top-0 left-0 w-full h-full z-10 bg-white transition-all duration-300 ease-in-out">
+  <div v-if="isOpen" class="fixed top-0 left-0 w-full h-full z-20 bg-white transition-all duration-300 ease-in-out">
 		<div class="absolute z-20 w-full flex justify-end p-10" @click="open">
 			X
 		</div>
