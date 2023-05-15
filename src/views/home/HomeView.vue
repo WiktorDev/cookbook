@@ -5,10 +5,7 @@
 </template>
 <script setup>
 import RecipeCard from "@/views/home/RecipeCard.vue";
-import {Recipe} from "@/objects/Recipe";
+import {useRecipesStore} from "@/stores/recipes";
 
-const items = [
-	new Recipe("Sernik", "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/sernik-krolewski-00_0.jpg", true),
-	new Recipe("Ciasto leśny mech", "https://static.fajnegotowanie.pl/media/uploads/media_image/original/przepis/554/ciasto-lesny-mech.jpg")
-]
+const items = useRecipesStore().recipes
 </script>

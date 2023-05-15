@@ -1,9 +1,9 @@
 <template>
   <nav class="flex justify-between p-2 items-center h-24 mx-20 mb-8">
-    <div class="flex items-center">
+		<router-link to="/" class="flex items-center">
       <img src="https://cdn-icons-png.flaticon.com/512/1021/1021460.png" class="w-12 mr-4" alt="">
       <h1 class="text-2xl font-bold">Przepisownik.pl</h1>
-    </div>
+		</router-link>
     <IconBars class="text-2xl font-bold" @click="open"/>
   </nav>
   <div v-if="isOpen" class="fixed top-0 left-0 w-full h-full z-20 bg-white transition-all duration-300 ease-in-out">
