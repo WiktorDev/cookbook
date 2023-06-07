@@ -30,8 +30,7 @@ const props = defineProps({
 	}
 })
 const isLiked = ref(props.item.isLiked)
-const uri = `/przepis/${props.item.name.toLowerCase().replaceAll(" ", "-")}
-`
+const uri = `/przepis/${props.item.name.toLowerCase().replaceAll(" ", "-")}`
 function like() {
 	isLiked.value = !isLiked.value
 }
