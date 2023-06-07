@@ -1,7 +1,7 @@
 <template>
   <input :type="type" class="bg-[#EDEDE9] rounded-[35px] w-full h-12 px-6"
          :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
-         :placeholder="caption">
+         :placeholder="caption" :disabled="disabled">
 </template>
 <script>
 export default {
@@ -14,7 +14,11 @@ export default {
       type: String,
       required: true
     },
-    modelValue: {}
+    modelValue: {},
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   },
   emits: ['update:modelValue']
 }
