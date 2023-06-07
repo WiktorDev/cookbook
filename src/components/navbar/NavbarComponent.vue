@@ -4,27 +4,24 @@
       <img src="https://cdn-icons-png.flaticon.com/512/1021/1021460.png" class="w-12 mr-4" alt="">
       <h1 class="text-2xl font-bold">Przepisownik.pl</h1>
 		</router-link>
-    <IconBars class="text-2xl font-bold" @click="open"/>
+    <IconBars class="text-2xl font-bold" @click="state.switchState()"/>
   </nav>
-  <div v-if="isOpen" class="fixed top-0 left-0 w-full h-full z-20 bg-white transition-all duration-300 ease-in-out">
-		<div class="absolute z-20 w-full flex justify-end py-10 px-20" @click="open">
+  <div v-if="state.isOpen" class="fixed top-0 left-0 w-full h-full z-20 bg-white transition-all duration-300 ease-in-out">
+		<div class="absolute z-20 w-full flex justify-end py-10 px-20" @click="state.switchState()">
 			<IconClose />
 		</div>
     <ul class="h-screen flex flex-col items-center justify-center">
-			<NavbarLink name="Wszystkie przepisy" link="/r"/>
-      <NavbarLink name="Ulubione przepisy" link="/r"/>
-      <NavbarLink name="Dodaj przepis" link="/r"/>
+			<NavbarLink name="Wszystkie przepisy" link="/"/>
+      <NavbarLink name="Ulubione przepisy" link="/"/>
+      <NavbarLink name="Dodaj przepis" link="/nowy-przepis"/>
     </ul>
   </div>
 </template>
 <script setup>
 import NavbarLink from "@/components/navbar/NavbarLink.vue";
-import {ref} from "vue";
 import IconBars from "@/components/icons/IconBars.vue";
 import IconClose from "@/components/icons/IconClose.vue";
+import {useNavbarState} from "@/stores/navbarState";
 
-const isOpen = ref(false)
-function open() {
-	isOpen.value = !isOpen.value
-}
+const state = useNavbarState()
 </script>
